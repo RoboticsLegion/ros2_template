@@ -18,11 +18,12 @@ class MultiPublisher(Node):
         msg = String()
         msg.data = 'Hello World: %d' % self.i
 
-        msg_cmd = String()
-        msg_cmd.data = 'Hello World: %d' % self.i
+        cmd_msg = Int16()
+        cmd_msg.data = self.i
 
         self.publisher_status.publish(msg)
-        self.publisher_status.publish(msg)
+        self.publisher_speed.publish(cmd_msg)
+        
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
 
