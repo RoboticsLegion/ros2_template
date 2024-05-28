@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'publisher = ros2_template.publisher:main',
             'subscriber = ros2_template.subscriber:main',
+            'multi_publisher = ros2_template.multi_publisher:main',
         ],
     },
 )
