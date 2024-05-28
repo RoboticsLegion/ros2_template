@@ -8,7 +8,7 @@ class MultiPublisher(Node):
 
     def __init__(self):
         super().__init__('multi_publisher')
-        self.publisher_status = self.create_publisher(String, '/pks/status', 10)
+        self.publisher_status = self.create_publisher(String, '/pkg/status', 10)
         self.publisher_speed = self.create_publisher(Int16, '/pkg/cmd_vel', 10)
         timer_period = 0.5  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
@@ -35,9 +35,6 @@ def main(args=None):
 
     rclpy.spin(multi_publisher)
 
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
     multi_publisher.destroy_node()
     rclpy.shutdown()
 
