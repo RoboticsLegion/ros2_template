@@ -8,9 +8,11 @@ class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('minimal_subscriber')
-        self.subscription = self.create_subscription(String, 'topic', self.listener_callback_msg, 10)
-        self.subscription = self.create_subscription(Int16, 'topic', self.listener_callback_cmd, 10)
-        self.subscription  # prevent unused variable warning
+        self.subscription_msg = self.create_subscription(String, '/pkg/status', self.listener_callback_msg, 10)
+        self.subscription_msg
+
+        self.subscription_cmd = self.create_subscription(Int16, '/pkg/cmd_vel', self.listener_callback_cmd, 10)
+        self.subscription_cmd 
 
     def listener_callback_msg(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
