@@ -23,6 +23,7 @@ setup(
             'publisher = ros2_template.publisher:main',
             'subscriber = ros2_template.subscriber:main',
             'multi_publisher = ros2_template.multi_publisher:main',
+            'img_publisher = ros2_template.img_publisher:main',
         ],
     },
 )
